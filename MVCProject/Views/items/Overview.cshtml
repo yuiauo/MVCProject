@@ -1,18 +1,22 @@
 @model MVCProject.Models.Item
 
 @{
-    Layout = null;
+    var message = "Hello, world!";
+    var items = new List<string> { "Item1", "Item2", "Item3" };
+    bool isLoggedIn = true;
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      <p>This is the name of the item @Model.Name  </p>
-</div>
-</body>
-</html>
+<p>@message</p>
+<ul>
+    @foreach (var item in items)
+    {
+        <li>@item</li>
+    }
+</ul>
+@if (isLoggedIn)
+{
+    <p> @message </p>
+}
+else
+{
+    <p> Please log in </p>
+}
